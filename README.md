@@ -3,7 +3,7 @@ trafficserver Cookbook
 
 [![Build Status](https://travis-ci.org/vkhatri/chef-trafficserver.svg?branch=master)](https://travis-ci.org/vkhatri/chef-trafficserver)
 
-This is a [Chef] cookbook to manage [Apache TrafficServer] using LWRP.
+This is a [Chef] cookbook to manage [Apache TrafficServer].
 
 >> Note: This cookbook is currently under development and may not be tested for intended
 features & functionality.
@@ -24,8 +24,9 @@ Currently this cookbook under development and support only RHEL based platforms.
 
 ## Dependencies
 
+- apt
 - yum-epel
-
+- ulimit
 
 ## Recipes
 
