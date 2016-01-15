@@ -19,6 +19,10 @@
 
 include_recipe 'trafficserver::package_dependency'
 
+user node['trafficserver']['user'] do
+  comment 'TrafficServer User'
+end
+
 [node['trafficserver']['log_dir'],
  node['trafficserver']['conf_dir'],
  node['trafficserver']['storage_dir'],

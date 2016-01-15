@@ -171,7 +171,7 @@ test -f /etc/rc.subr && . /etc/rc.subr
 if [ ! -d $TS_ROOT/var/trafficserver ]
 then
 	mkdir -p $TS_ROOT/var/trafficserver
-	chown ats:ats $TS_ROOT/var/trafficserver
+	chown <%= @user -%>:<%= @group -%> $TS_ROOT/var/trafficserver
 fi
 
 #

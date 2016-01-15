@@ -1,7 +1,7 @@
 trafficserver Cookbook
 ======================
 
-[![Build Status](https://travis-ci.org/vkhatri/chef-trafficserver.svg?branch=master)](https://travis-ci.org/vkhatri/chef-trafficserver)
+[![Build Status](https://travis-ci.org/bcorner/chef-trafficserver.svg?branch=master)](https://travis-ci.org/bcorner/chef-trafficserver)
 
 This is a [Chef] cookbook to manage [Apache TrafficServer].
 
