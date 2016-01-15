@@ -34,7 +34,7 @@ include_recipe 'trafficserver::user'
   end
 end
 
-tarball_file  = ::File.join(node['trafficserver']['version_dir'], "trafficserver-#{node['trafficserver']['version']}.tar.bz2")
+tarball_file = ::File.join( node['trafficserver']['version_dir'], "trafficserver-#{node['trafficserver']['version']}.tar.bz2" )
 
 # Stop trafficserver Service if running for Version Upgrade
 service 'trafficserver' do
@@ -68,10 +68,10 @@ end
 
 compile_options = ''
 node['trafficserver']['compile'].each do |k, v|
-  if v
-    compile_options << " #{k}=#{v}"
-  else
+  unless defined?(v)
     compile_options << " #{k}"
+  else
+    compile_options << " #{k}=#{v}"
   end
 end
 
