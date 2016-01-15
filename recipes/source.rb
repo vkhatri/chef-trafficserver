@@ -68,7 +68,7 @@ end
 
 compile_options = ''
 node['trafficserver']['compile'].each do |k, v|
-  if defined?(v)
+  if v.to_str
     compile_options << " #{k}=#{v}"
   else
     compile_options << " #{k}"
