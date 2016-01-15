@@ -1,7 +1,7 @@
 trafficserver Cookbook
 ======================
 
-[![Build Status](https://travis-ci.org/bcorner/chef-trafficserver.svg?branch=master)](https://travis-ci.org/bcorner/chef-trafficserver)
+[![Build Status](https://travis-ci.org/bcorner13/chef-trafficserver.svg?branch=hotfix/CreateMissingUser)](https://travis-ci.org/bcorner13/chef-trafficserver)
 
 This is a [Chef] cookbook to manage [Apache TrafficServer].
 
