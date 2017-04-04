@@ -16,3 +16,4 @@ depends 'ulimit'
 %w(redhat centos amazon).each do |os|
   supports os
 end
+chef_version '12.4'
