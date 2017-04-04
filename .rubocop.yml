@@ -73,3 +73,6 @@ AllCops:
   Include:
     - '**/metadata.rb'
     - '**/*.rb'
+  Exclude:
+    - Thorfile
+    - Vagrantfile
