@@ -18,9 +18,9 @@
 #
 
 node['trafficserver']['config']['volume'].each do |id, options|
-  fail 'volume id must be numeric' unless id.is_a?(Integer)
-  fail 'missing volume attribute scheme' unless options.key?('scheme') || options['scheme']
-  fail 'missing volume attribute size' unless options.key?('size') || options['size']
+  raise 'volume id must be numeric' unless id.is_a?(Integer)
+  raise 'missing volume attribute scheme' unless options.key?('scheme') || options['scheme']
+  raise 'missing volume attribute size' unless options.key?('size') || options['size']
 end
 
 template ::File.join(node['trafficserver']['conf_dir'], 'volume.config') do
@@ -28,7 +28,7 @@ template ::File.join(node['trafficserver']['conf_dir'], 'volume.config') do
   source 'volume.config.erb'
   owner node['trafficserver']['user']
   group node['trafficserver']['group']
-  mode 0644
+  mode 0o644
   variables(:volume => node['trafficserver']['config']['volume'])
   notifies :reload, 'service[trafficserver]', :delayed if node['trafficserver']['notify_restart']
   only_if { node['trafficserver']['manage_config'] }

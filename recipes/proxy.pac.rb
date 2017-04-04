@@ -23,7 +23,7 @@ template ::File.join(node['trafficserver']['conf_dir'], 'proxy.pac') do
   source 'proxy.pac.erb'
   owner node['trafficserver']['user']
   group node['trafficserver']['group']
-  mode 0644
+  mode 0o644
   notifies :reload, 'service[trafficserver]', :delayed if node['trafficserver']['notify_restart']
   only_if { node['trafficserver']['manage_config'] }
 end
