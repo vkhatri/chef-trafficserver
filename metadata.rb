@@ -13,7 +13,6 @@ depends 'apt'
 depends 'yum-epel'
 depends 'ulimit'
 
-%w(redhat centos amazon).each do |os|
-  supports os
-end
+supports 'centos'
+supports 'redhat'
 chef_version '12.4'
