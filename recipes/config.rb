@@ -49,7 +49,7 @@ template node['trafficserver']['service_config_file'] do
   source 'sysconfig.erb'
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   notifies :restart, 'service[trafficserver]', :delayed if node['trafficserver']['notify_restart']
   only_if { node['trafficserver']['manage_config'] }
 end
@@ -60,7 +60,7 @@ remote_directory ::File.join(node['trafficserver']['conf_dir'], 'body_factory') 
   owner node['trafficserver']['user']
   group node['trafficserver']['group']
   mode node['trafficserver']['dir_mode']
-  files_mode 0644
+  files_mode 0o644
   files_owner node['trafficserver']['user']
   files_group node['trafficserver']['group']
   notifies :reload, 'service[trafficserver]', :delayed if node['trafficserver']['notify_restart']

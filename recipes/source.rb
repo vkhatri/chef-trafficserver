@@ -24,8 +24,7 @@ include_recipe 'trafficserver::user'
 [node['trafficserver']['parent_dir'],
  node['trafficserver']['version_dir'],
  node['trafficserver']['conf_dir'],
- node['trafficserver']['install_dir']
-].each do |dir|
+ node['trafficserver']['install_dir']].each do |dir|
   directory dir do
     owner node['trafficserver']['user']
     group node['trafficserver']['group']
@@ -34,7 +33,7 @@ include_recipe 'trafficserver::user'
   end
 end
 
-tarball_file  = ::File.join(node['trafficserver']['version_dir'], "trafficserver-#{node['trafficserver']['version']}.tar.bz2")
+tarball_file = ::File.join(node['trafficserver']['version_dir'], "trafficserver-#{node['trafficserver']['version']}.tar.bz2")
 
 # Stop trafficserver Service if running for Version Upgrade
 service 'trafficserver' do
@@ -68,11 +67,11 @@ end
 
 compile_options = ''
 node['trafficserver']['compile'].each do |k, v|
-  if v
-    compile_options << " #{k}=#{v}"
-  else
-    compile_options << " #{k}"
-  end
+  compile_options << if v
+                       " #{k}=#{v}"
+                     else
+                       " #{k}"
+                     end
 end
 
 # compile
@@ -92,7 +91,7 @@ template '/etc/init.d/trafficserver' do
   source 'initd.erb'
   owner 'root'
   group 'root'
-  mode 0750
+  mode 0o750
   variables(:version => node['trafficserver']['version'],
             :install_dir => node['trafficserver']['install_dir'],
             :log_dir => node['trafficserver']['log_dir'])

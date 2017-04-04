@@ -22,8 +22,7 @@ include_recipe 'trafficserver::package_dependency'
 [node['trafficserver']['log_dir'],
  node['trafficserver']['conf_dir'],
  node['trafficserver']['storage_dir'],
- node['trafficserver']['data_dir']
-].each do |dir|
+ node['trafficserver']['data_dir']].each do |dir|
   directory dir do
     owner node['trafficserver']['user']
     group node['trafficserver']['group']
